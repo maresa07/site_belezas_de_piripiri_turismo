@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{# ============================
+   TÍTULO DA PÁGINA
+   ============================ #}
+{% block title %}Locais cadastrados{% endblock %}
+
+{# ============================
+   CONTEÚDO PRINCIPAL
+   ============================ #}
+{% block content %}
+
+<!-- Título da página -->
+<h2>📍 Locais cadastrados</h2>
+
+<form method="GET" style="margin-bottom: 20px;">
+
+  <input
+    type="text"
+    name="busca"
+    placeholder="Buscar por nome"
+    value="{{ request.args.get('busca', '') }}"
+  >
+
+  <select name="categoria">
+    <option value="">Todas as categorias</option>
+    <option value="pizzaria">Pizzaria</option>
+    <option value="hamburgueria">Hamburgueria</option>
+    <option value="restaurantes">Restaurantes</option>
+    <option value="sushi">Sushi</option>
+    <option value="sorveteria">Sorveteria</option>
+    <option value="pracas">Praças</option>
+    <option value="igrejas">Igrejas</option>
+    <option value="esportes">Esportes</option>
+    <option value="banhos">Banhos</option>
+    <option value="academia">Academia</option>
+    <option value="hospedagem">Hospedagem</option>
+  </select>
+
+  <button type="submit">🔍 Filtrar</button>
+</form>
+
+<!-- Tabela de locais cadastrados -->
+<table border="1" cellpadding="10">
+
+  <!-- Cabeçalho da tabela -->
+  <tr>
+    <th>Nome</th>
+    <th>Categoria</th>
+    <th></th>
+  </tr>
+
+  <!-- Loop pelos locais vindos do backend -->
+  {% for local in locais %}
+  <tr>
+    <!-- Nome do local -->
+    <td>{{ local.nome }}</td>
+
+    <!-- Categoria do local -->
+    <td>{{ local.category_slug }}</td>
+
+    <!-- Link para visualizar os detalhes do local -->
+    <td>
+      <a href="{{ url_for('detalhar_local_admin', id=local.id) }}">
+        🔍 Detalhar
+      </a>
+    </td>
+  </tr>
+  {% endfor %}
+
+</table>
+
+<br>
+
+<!-- Link para voltar ao dashboard administrativo -->
+<a href="{{ url_for('admin') }}">⬅ Voltar</a>
+
+{% endblock %}

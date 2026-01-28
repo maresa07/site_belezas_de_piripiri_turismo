@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ lugar.nome }}{% endblock %}
+
+{% block content %}
+<div class="contener">
+
+<h1>{{ lugar.nome }}</h1>
+
+<img src="{{ lugar.imagem }}" class="course-img">
+
+<p>{{ lugar.descricao_longa }}</p>
+<div class="informacoes">
+<p><strong>Endereço:</strong> {{ lugar.endereco }}</p>
+<p><strong>Telefone:</strong> {{ lugar.telefone }}</p>
+<p><strong>Opções de serviço:</strong> {{ lugar.opcoes_servico }}</p>
+<p><strong>Avaliações:</strong> {{ lugar.avaliacoes }}</p>
+</div>
+
+<a href="javascript:history.back()" class="btn">Voltar</a>
+
+</div>
+{% endblock %}

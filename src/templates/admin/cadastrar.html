@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{# ============================
+   TÍTULO DA PÁGINA
+   ============================ #}
+{% block title %}Cadastrar novo local{% endblock %}
+
+{# ============================
+   CONTEÚDO PRINCIPAL
+   ============================ #}
+{% block content %}
+
+<!-- Título da página -->
+<h2>➕ Cadastrar novo local</h2>
+
+<!-- Formulário de cadastro de local -->
+<form method="POST">
+
+  <!-- Nome do local -->
+  <label>Nome do local</label><br>
+  <input type="text" name="nome" required><br><br>
+
+  <!-- Categoria do local -->
+  <label>Categoria</label><br>
+  <select name="category_ref" required>
+    <option value="">Selecione</option>
+    <option value="pizzaria">Pizzaria</option>
+    <option value="hamburgueria">Hamburgueria</option>
+    <option value="restaurantes">Restaurante</option>
+    <option value="sushi">Sushi</option>
+    <option value="sorveteria">Sorveteria</option>
+    <option value="pracas">Praça</option>
+    <option value="igrejas">Igrejas</option>
+    <option value="esportes">Esportes</option>
+    <option value="banhos">Banhos</option>
+    <option value="academia">Academia</option>
+    <option value="hospedagem">Hospedagem</option>
+  </select><br><br>
+
+  <!-- Descrição curta -->
+  <label>Descrição curta</label><br>
+  <input type="text" name="descricao_curta" required><br><br>
+
+  <!-- Descrição longa -->
+  <label>Descrição longa</label><br>
+  <textarea name="descricao_longa" rows="5" required></textarea><br><br>
+
+  <!-- Endereço -->
+  <label>Endereço</label><br>
+  <input type="text" name="endereco" required><br><br>
+
+  <!-- Telefone -->
+  <label>Telefone</label><br>
+  <input type="text" name="telefone"><br><br>
+
+  <!-- URL da imagem -->
+  <label>URL da imagem</label><br>
+  <input type="url" name="imagem"><br><br>
+
+  <!-- Botão de envio -->
+  <button type="submit">Salvar local</button>
+</form>
+
+<!-- Link para voltar ao painel administrativo -->
+<a href="{{ url_for('admin') }}">⬅ Voltar ao Dashboard</a><br><br>
+
+{% endblock %}

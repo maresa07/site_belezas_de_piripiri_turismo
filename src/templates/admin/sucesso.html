@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Cadastro realizado{% endblock %}
+
+{% block content %}
+<h2>✅ Local cadastrado com sucesso</h2>
+
+<p><b>Nome:</b> {{ dados.nome }}</p>
+<p><b>Categoria:</b> {{ dados.category_slug }}</p>
+<p><b>Descrição curta:</b> {{ dados.descricao_curta }}</p>
+<p><b>Descrição longa:</b> {{ dados.descricao_longa }}</p>
+<p><b>Endereço:</b> {{ dados.endereco }}</p>
+<p><b>Telefone:</b> {{ dados.telefone }}</p>
+<p><b>ID do local:</b> {{ doc_id }}</p>
+
+
+{% if dados.imagem %}
+<p><b>Imagem:</b><br>
+<img src="{{ dados.imagem }}" width="300">
+</p>
+{% endif %}
+
+<hr>
+
+<p style="color: green;">
+✔ Os dados foram salvos no banco de dados.
+</p>
+
+<br>
+
+<a href="{{ url_for('admin') }}">⬅ Voltar ao Dashboard</a><br><br>
+<a href="{{ url_for('cadastrar') }}">➕ Cadastrar outro local</a>
+{% endblock %}

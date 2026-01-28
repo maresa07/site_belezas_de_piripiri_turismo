@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Editar local{% endblock %}
+
+{% block content %}
+<h2>✏️ Editar local</h2>
+
+<form method="POST">
+
+  <label>Nome</label><br>
+  <input type="text" name="nome" value="{{ local.nome }}" required><br><br>
+
+  <label>Categoria</label><br>
+  <input type="text" name="category_slug" value="{{ local.category_slug }}" required><br><br>
+
+  <label>Descrição curta</label><br>
+  <input type="text" name="descricao_curta" value="{{ local.descricao_curta }}" required><br><br>
+
+  <label>Descrição longa</label><br>
+  <textarea name="descricao_longa" rows="5" required>{{ local.descricao_longa }}</textarea><br><br>
+
+  <label>Endereço</label><br>
+  <input type="text" name="endereco" value="{{ local.endereco }}" required><br><br>
+
+  <label>Telefone</label><br>
+  <input type="text" name="telefone" value="{{ local.telefone }}"><br><br>
+
+  <label>URL da imagem</label><br>
+  <input
+    type="url"
+    name="imagem"
+    id="imagemInput"
+    value="{{ local.imagem }}"
+    oninput="atualizarPreview()"
+  ><br><br>
+
+  <!-- PREVIEW -->
+  <div id="previewBox">
+    {% if local.imagem %}
+      <img
+        id="previewImg"
+        src="{{ local.imagem }}"
+        alt="Preview da imagem"
+        style="max-width: 350px; border-radius: 10px;"
+      >
+    {% else %}
+      <img
+        id="previewImg"
+        style="display:none; max-width: 350px; border-radius: 10px;"
+      >
+    {% endif %}
+  </div>
+
+  <br>
+  <button type="submit">💾 Salvar alterações</button>
+
+</form>
+
+<br>
+<a href="{{ url_for('detalhar_local_admin', id=local.id) }}">⬅ Voltar</a>
+
+<!-- JS DO PREVIEW -->
+<script>
+function atualizarPreview() {
+  const input = document.getElementById("imagemInput");
+  const img = document.getElementById("previewImg");
+
+  if (input.value.trim() === "") {
+    img.style.display = "none";
+    img.src = "";
+  } else {
+    img.src = input.value;
+    img.style.display = "block";
+  }
+}
+</script>
+
+{% endblock %}

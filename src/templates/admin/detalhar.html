@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Detalhes do local{% endblock %}
+
+{% block content %}
+<h2>📍 {{ local.nome }}</h2>
+
+<p><strong>Categoria:</strong> {{ local.category_slug }}</p>
+<p><strong>Endereço:</strong> {{ local.endereco }}</p>
+<p><strong>Telefone:</strong> {{ local.telefone }}</p>
+<p><strong>Avaliação:</strong> {{ local.avaliacoes }}</p>
+
+<p><strong>Descrição curta:</strong><br>{{ local.descricao_curta }}</p>
+<p><strong>Descrição longa:</strong><br>{{ local.descricao_longa }}</p>
+
+{% if local.imagem %}
+<img src="{{ local.imagem }}" width="400">
+{% endif %}
+
+<hr>
+
+<a href="{{ url_for('editar_local', id=local.id) }}">✏️ Editar</a>
+
+<form
+  action="{{ url_for('excluir_local', id=local.id) }}"
+  method="POST"
+  style="display:inline"
+  onsubmit="return confirm('Deseja realmente excluir este local?')"
+>
+  <button type="submit">🗑 Excluir</button>
+</form>
+
+<br><br>
+<a href="{{ url_for('locais') }}">⬅ Voltar</a>
+{% endblock %}

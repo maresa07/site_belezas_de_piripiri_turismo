@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Contato - Belezas de Piripiri{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contato.css') }}">
+
+<section class="contato-section">
+    <div class="contato-wrapper">
+
+        <!-- FORMULÁRIO -->
+        <div class="contato-card">
+            <h1>Fale Conosco</h1>
+            <p class="contato-subtitle">
+                Envie sua mensagem e entraremos em contato em breve.
+            </p>
+
+            <form method="POST" class="contato-form">
+                <div class="input-group">
+                    <span class="icon">👤</span>
+                    <input type="text" name="nome" placeholder="Seu Nome" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="icon">📧</span>
+                    <input type="email" name="email" placeholder="Seu Email" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="icon">💬</span>
+                    <textarea name="mensagem" placeholder="Sua Mensagem" required class="auto-expand"></textarea>
+                </div>
+
+                <button type="submit" class="btn">Enviar Mensagem</button>
+
+                {% if sucesso %}
+                    <p class="sucesso-msg">{{ sucesso }}</p>
+                {% elif erro %}
+                    <p class="erro-msg">{{ erro }}</p>
+                {% endif %}
+            </form>
+        </div>
+
+        <!-- INFORMAÇÕES -->
+        <div class="info-card">
+            <h2>Informações</h2>
+
+            <div class="info-item">
+                <span class="icon">📍</span>
+                <p>Piripiri - PI<br>Brasil</p>
+            </div>
+
+            <div class="info-item">
+                <span class="icon">📞</span>
+                <p>(86) 9932-8773</p>
+            </div>
+
+            <div class="info-item">
+                <span class="icon">✉️</span>
+                <p>contato: belezaspiripiri@gmail.com</p>
+            </div>
+
+            <div class="info-item">
+                <span class="icon">⏰</span>
+                <p>Seg à Sex — 08h às 18h</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const textareas = document.querySelectorAll("textarea.auto-expand");
+
+    textareas.forEach(textarea => {
+        textarea.addEventListener("input", function() {
+            this.style.height = "auto";
+            this.style.height = this.scrollHeight + "px";
+        });
+    });
+});
+</script>
+
+{% endblock %}
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Belezas de Piripiri{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icons/favicon.ico') }}">
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+
+</head>
+<body>
+
+    {% include "header.html" %}
+
+    <main class="conteudo">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include "footer.html" %}
+
+    <script>
+  function toggleAtracoes() {
+    const box = document.getElementById("atracoesBox");
+    box.style.display = box.style.display === "block" ? "none" : "block";
+  }
+
+  document.addEventListener("click", function(event) {
+    const dropdown = document.querySelector(".dropdown");
+    const box = document.getElementById("atracoesBox");
+
+    if (dropdown && !dropdown.contains(event.target)) {
+      box.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>
