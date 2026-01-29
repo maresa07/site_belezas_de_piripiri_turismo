@@ -10,6 +10,9 @@
    ============================ #}
 {% block content %}
 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cadastrar.css') }}">
+
+<div class="dashboard-form">
 <!-- Título da página -->
 <h2>➕ Cadastrar novo local</h2>
 
@@ -62,6 +65,7 @@
 </form>
 
 <!-- Link para voltar ao painel administrativo -->
-<a href="{{ url_for('admin') }}">⬅ Voltar ao Dashboard</a><br><br>
+<a href="{{ url_for('admin') }}">⬅ Voltar ao Dashboard</a>
+</div>
 
 {% endblock %}

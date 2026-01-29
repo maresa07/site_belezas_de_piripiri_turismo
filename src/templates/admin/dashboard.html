@@ -3,12 +3,22 @@
 {% block title %}Belezas de Piripiri: encantando a todos.{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
 
-<h2>Dashboard</h2>
+<div class="dashboard">
+    <h2>Bem-vindo ao Sistema de Turismo em Piripiri!</h2>
 
-<a href="{{ url_for('cadastrar') }}">➕ Cadastrar ponto</a><br><br>
+    <div class="cards">
+        <a href="{{ url_for('cadastrar') }}" class="card">
+            <span class="icon">➕</span>
+            <span class="text">Cadastrar<br>Ponto Turístico</span>
+        </a>
 
-<a href="{{ url_for('locais') }}">👀 Observar locais</a><br><br>
-
+        <a href="{{ url_for('locais') }}" class="card">
+            <span class="icon">☰</span>
+            <span class="text">Ver Pontos<br>Turísticos</span>
+        </a>
+    </div>
+</div>
 
 {% endblock %}
