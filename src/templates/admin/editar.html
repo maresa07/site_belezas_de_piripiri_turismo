@@ -1,7 +1,17 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/editar.css') }}">
+  <title>Document</title>
+</head>
+<body>
+    {% extends "base.html" %}
 {% block title %}Editar local{% endblock %}
 
 {% block content %}
+<div class="edit-card">
 <h2>✏️ Editar local</h2>
 
 <form method="POST">
@@ -73,5 +83,9 @@ function atualizarPreview() {
   }
 }
 </script>
+</div>
 
 {% endblock %}
+
+</body>
+</html>

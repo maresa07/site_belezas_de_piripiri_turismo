@@ -1,4 +1,13 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/locais.css') }}">
+  <title>Document</title>
+</head>
+<body>
+      {% extends "base.html" %}
 
 {# ============================
    TÍTULO DA PÁGINA
@@ -9,6 +18,7 @@
    CONTEÚDO PRINCIPAL
    ============================ #}
 {% block content %}
+<div class="list-card">
 
 <!-- Título da página -->
 <h2>📍 Locais cadastrados</h2>
@@ -74,5 +84,8 @@
 
 <!-- Link para voltar ao dashboard administrativo -->
 <a href="{{ url_for('admin') }}">⬅ Voltar</a>
-
+</div>
 {% endblock %}
+
+</body>
+</html>

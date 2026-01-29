@@ -1,4 +1,12 @@
-<header class="search-header">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header class="search-header">
     <img src="{{ url_for('static', filename='imagens/imagens1.png') }}" alt="Ícone do site">
     <form class="search-box" action="{{ url_for('buscar') }}" method="get">
     <span class="icon">🔍</span>
@@ -11,117 +19,7 @@
     >
     <button type="submit">Buscar</button>
 </form>
-
-<nav class="menu">
-
-  <a href="{{ url_for('index') }}" class="menu-item">
-    <span class="icon">🏠</span>
-    <span>Início</span>
-  </a>
-  <nav class="menu">
-
-
-  <!-- BOTÃO ATRAÇÕES -->
-  <div class="menu-item dropdown">
-    <button class="dropdown-btn" onclick="toggleAtracoes()">
-      <span class="icon"></span>
-      <span>Atrações</span>
-    </button>
- <!-- CAIXINHA -->
-    <div class="dropdown-content" id="atracoesBox">
-      <a href="{{ url_for('categoria', nome='pizzaria') }}" class="menu-item">
-    <span class="icon"></span>
-    <span>Pizzaria</span>
-  </a>
-
-  <a href="{{ url_for('categoria', nome='hamburgueria') }}" class="menu-item">
-    <span class="icon"></span>
-    <span>Hamburgueria</span>
-  </a>
-
-  <a href="{{ url_for('categoria', nome='restaurantes') }}" class="menu-item">
-    <span class="icon"></span>
-    <span>Restaurantes</span>
-  </a>
-
-  <a href="{{ url_for('categoria', nome='sushi') }}" class="menu-item">
-    <span class="icon"></span>
-    <span>Sushi</span>
-  </a>
-
-  <a href="{{ url_for('categoria', nome='sorveteria') }}" class="menu-item">
-    <span class="icon"></span>
-    <span>Sorveteria</span>
-  </a>
-
-  <a href="{{ url_for('categoria', nome='pracas') }}" class="menu-item">
-    <span class="icon"></span>
-    <span>Praças</span>
-  </a>
-
-  <a href="{{ url_for('categoria', nome='igrejas') }}" class="menu-item">
-    <span class="icon"></span>
-    <span>Igrejas</span>
-  </a>
-
-  <a href="{{ url_for('categoria', nome='esportes') }}" class="menu-item">
-    <span class="icon"></span>
-    <span>Esportes</span>
-  </a>
-
-  <a href="{{ url_for('categoria', nome='banhos') }}" class="menu-item">
-    <span class="icon"></span>
-    <span>Banhos</span>
-  </a>
-
-  <a href="{{ url_for('categoria', nome='academia') }}" class="menu-item">
-    <span class="icon"></span>
-    <span>Academia</span>
-  </a>
-
-
-  <a href="{{ url_for('categoria', nome='hospedagem') }}" class="menu-item">
-    <span class="icon"></span>
-    <span>Hospedagem</span>
-  </a>
-    </div>
-  </div>
-
-</nav>
-
-<a href="{{ url_for('contato') }}" class="menu-item">
-  <span class="icon">📩</span>
-  <span>Contato</span>
-</a>
-
-
-  <!-- BOTÃO ADMIN -->
-{% if session.get("admin") and request.endpoint != "admin" %}
-  <a href="{{ url_for('admin') }}" class="menu-item">
-    <span class="icon">⬅</span>
-    <span>Voltar</span>
-  </a>
-
-  <a href="{{ url_for('logout') }}" class="menu-item">
-    <span class="icon">🚪</span>
-    <span>Sair</span>
-  </a>
-
-{% elif session.get("admin") %}
-  <a href="{{ url_for('logout') }}" class="menu-item">
-    <span class="icon">🚪</span>
-    <span>Sair</span>
-  </a>
-
-{% else %}
-  <a href="{{ url_for('login') }}" class="menu-item">
-    <span class="icon">🔐</span>
-    <span>Login</span>
-  </a>
-
-{% endif %}
-
-
-
-</nav>
+  {% include "categorias.html" %}
 </header>
+</body>
+</html>

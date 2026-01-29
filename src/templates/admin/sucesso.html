@@ -1,8 +1,18 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sucesso.css') }}">
+    <title>Document</title>
+</head>
+<body>
+       {% extends "base.html" %}
 
 {% block title %}Cadastro realizado{% endblock %}
 
 {% block content %}
+<div class="success-card">
 <h2>✅ Local cadastrado com sucesso</h2>
 
 <p><b>Nome:</b> {{ dados.nome }}</p>
@@ -30,4 +40,8 @@
 
 <a href="{{ url_for('admin') }}">⬅ Voltar ao Dashboard</a><br><br>
 <a href="{{ url_for('cadastrar') }}">➕ Cadastrar outro local</a>
+
+</div>
 {% endblock %}
+</body>
+</html>

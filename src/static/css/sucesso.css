@@ -1,0 +1,82 @@
+/* ===== RESET ===== */
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== FUNDO ===== */
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #E4E3C5, #C9D9A5);
+}
+
+/* ===== CARD DE SUCESSO ===== */
+.success-card {
+    width: 800px;
+    margin: 80px auto;
+    background: #ffffff;
+    padding: 30px 35px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ===== TÍTULO ===== */
+.success-card h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #2e7d32;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ===== TEXTO ===== */
+.success-card p {
+    font-size: 14px;
+    color: #333;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.success-card b {
+    color: #222;
+}
+
+/* ===== IMAGEM ===== */
+.success-card img {
+    margin-top: 10px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ===== LINHA ===== */
+.success-card hr {
+    margin: 25px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* ===== MENSAGEM FINAL ===== */
+.success-card .ok-msg {
+    color: #2e7d32;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ===== LINKS ===== */
+.success-card a {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+    padding: 8px 14px;
+    font-size: 13px;
+    background: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.success-card a:hover {
+    background: #e0e0e0;
+}

@@ -1,0 +1,112 @@
+/* ===== RESET ===== */
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== FUNDO ===== */
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #E4E3C5, #C9D9A5);
+}
+
+/* ===== CARD PRINCIPAL ===== */
+.details-card {
+    width: 900px;
+    margin: 80px auto;
+    background: #ffffff;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+/* ===== TÍTULO ===== */
+.details-card h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #2f4f2f;
+}
+
+/* ===== TEXTOS ===== */
+.details-card p {
+    font-size: 15px;
+    color: #333;
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.details-card strong {
+    color: #222;
+}
+
+/* ===== IMAGEM ===== */
+.details-card img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+/* ===== SEPARADOR ===== */
+.details-card hr {
+    margin: 30px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* ===== AÇÕES ===== */
+.details-card a,
+.details-card button {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Editar */
+.details-card a[href*="editar"] {
+    background: #4caf50;
+    color: #fff;
+}
+
+.details-card a[href*="editar"]:hover {
+    background: #3e8e41;
+    transform: translateY(-2px);
+}
+
+/* Excluir */
+.details-card button {
+    background: #e53935;
+    color: #fff;
+}
+
+.details-card button:hover {
+    background: #c62828;
+    transform: translateY(-2px);
+}
+
+/* Voltar */
+.details-card a[href*="locais"] {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.details-card a[href*="locais"]:hover {
+    background: #d0d0d0;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 950px) {
+    .details-card {
+        width: 90%;
+        padding: 25px;
+    }
+}
