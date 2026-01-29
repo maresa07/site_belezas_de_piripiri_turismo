@@ -13,27 +13,29 @@
     {% include "header.html" %}
 
 
+
     <main class="conteudo">
         {% block content %}{% endblock %}
     </main>
 
     {% include "footer.html" %}
 
-    <script>
-  function toggleAtracoes() {
-    const box = document.getElementById("atracoesBox");
-    box.style.display = box.style.display === "block" ? "none" : "block";
+ <script>
+function toggleAtracoes(event) {
+  event.stopPropagation();
+  const box = document.getElementById("atracoesBox");
+  box.classList.toggle("show");
+}
+
+document.addEventListener("click", function () {
+  const box = document.getElementById("atracoesBox");
+  if (box) {
+    box.classList.remove("show");
   }
-
-  document.addEventListener("click", function(event) {
-    const dropdown = document.querySelector(".dropdown");
-    const box = document.getElementById("atracoesBox");
-
-    if (dropdown && !dropdown.contains(event.target)) {
-      box.style.display = "none";
-    }
-  });
+});
 </script>
+
+
 
 </body>
 </html>

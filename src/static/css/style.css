@@ -4,6 +4,9 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
+     height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 p {
@@ -100,92 +103,63 @@ p {
 /* ===== DROPDOWN ATRAÇÕES ===== */
 
 .dropdown {
-    position: relative; /* referência para o menu flutuante */
+  position: relative;
 }
 
-/* botão "Atrações" */
-.dropdown-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    height: 25px;
-    background: transparent;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-}
-.dropdown-btn {
-    border: none;
-    outline: none;
-}
-
-.dropdown-btn:focus,
-.dropdown-btn:focus-visible,
-.dropdown-btn:active {
-    outline: none;
-    box-shadow: none;
-}
-
-/* caixa das categorias */
+/* CAIXA */
 .dropdown-content {
-    display: none;          /* começa fechado */
-    position: absolute;
-    top: 45px;
-    left: 0;
+  position: absolute;
+  top: 45px;
+  left: 0;
 
-    background: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+  width: 220px;
+  max-height: 180px;
 
-    width: 200px;           /* largura da caixinha */
-    max-height: 180px;      /* 🔑 altura máxima */
-    overflow-y: auto;       /* 🔑 rolagem vertical */
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 
-    padding: 4px 0;
-    z-index: 1000;
+  display: none;          /* 🔑 fechado = não existe */
+  overflow: hidden;       /* 🔑 sem scroll invisível */
+  z-index: 9999;
 }
 
-
-/* quando abre */
+/* ABERTO */
 .dropdown-content.show {
-    display: flex;
+  display: block;
+  overflow-y: auto;       /* 🔑 scroll só aqui */
 }
 
-/* botões das categorias */
-.dropdown-content .menu-item {
-    display: block;
-    padding: 8px 12px;
-
-    background: transparent;
-    color: #000;
-    border-radius: 0;
-
-    font-size: 14px;
+/* ITENS */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
 }
 
-/* hover azul estilo Windows */
-.dropdown-content .menu-item:hover {
-    background: #0a66c2;
-    color: white;
+.dropdown-item:hover {
+  background: #058353;
+  color: #fff;
 }
+
+/* SCROLL ESTILIZADO */
 .dropdown-content::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 .dropdown-content::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 .dropdown-content::-webkit-scrollbar-thumb {
-    background: #b0b0b0;
-    border-radius: 4px;
+  background: #b0b0b0;
+  border-radius: 4px;
 }
 
-.dropdown-content::-webkit-scrollbar-thumb:hover {
-    background: #888;
-}
 
 /* ===== CONTEÚDO PRINCIPAL ===== */
 .conteudo {
@@ -362,11 +336,13 @@ article.destaque img {
 }
 
 .contener img {
- width: 45%;
+    width: 65%;
     height: 300px;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    display: block;
+    margin: 0 auto;
 }
 
 .informacoes {

@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", function () {
         document.querySelectorAll(".dropdown-content").forEach(dc => {
             dc.classList.remove("show");
+
+            
         });
     });
 

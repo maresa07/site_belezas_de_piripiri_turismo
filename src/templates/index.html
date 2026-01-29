@@ -6,13 +6,16 @@
 
 <article class="destaque">
   <button class="prev" onclick="voltar()">&#10094;</button>
+
   <img 
     id="imagem"
     src="{{ url_for('static', filename='imagens/imagens2.png') }}" 
     alt="Imagens da igreja"
   >
+
   <button class="next" onclick="avancar()">&#10095;</button>
-  <div>
+
+  <div class="texto-destaque">
     <h5 style="color: darkgreen;">DESTAQUES</h5>
     <h1 style="color: rgb(90, 87, 87);">
       Piripiri é uma cidade que guarda história em cada detalhe.
@@ -25,28 +28,31 @@
 </article>
 
 <div class="title">
-    <h1>Principais Atrações</h1>
-    <p>Conheça alguns lugares escolhidos especialmente para você</p>
+  <h1>Principais Atrações</h1>
+  <p>Conheça alguns lugares escolhidos especialmente para você</p>
 </div>
 
+<!-- LOOP CORRETO -->
 <div class="cards">
-    {% for lugar in lugares %}
-    <div class="card">
-        <h2>{{ lugar.nome }}</h2>
+  {% for lugar in lugares %}
+  <div class="card">
 
-        {% if lugar.imagem %}
-        <img src="{{ lugar.imagem }}" class="course-img" alt="{{ lugar.nome }}">
-        {% endif %}
+    {% if lugar.imagem %}
+    <img src="{{ lugar.imagem }}" class="course-img" alt="{{ lugar.nome }}">
+    {% endif %}
 
-        <p>{{ lugar.descricao_curta }}</p>
+    <div class="card-content">
+      <h2>{{ lugar.nome }}</h2>
+      <p>{{ lugar.descricao_curta }}</p>
 
-        <a href="{{ url_for('lugar', id=lugar.id) }}" class="btn">
-            Ver detalhes
-        </a>
+      <a href="{{ url_for('lugar', id=lugar.id) }}" class="btn">
+        Ver detalhes
+      </a>
     </div>
-    {% endfor %}
-</div>
 
+  </div>
+  {% endfor %}
+</div>
 
 {% if lugares|length == 0 %}
 <p>Nenhum lugar encontrado.</p>
@@ -54,5 +60,4 @@
 
 <script src="{{ url_for('static', filename='js/carrossel.js') }}" defer></script>
 
-
-{% endblock %}   
+{% endblock %}
